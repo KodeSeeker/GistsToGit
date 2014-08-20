@@ -16,8 +16,8 @@ import org.json.JSONObject;
 
 public class GistExtract {
 
-	public static final String GIT_URL = "https://api.github.com/users/KodeSeeker/gists";
-	public static final String WORKSPACE_PATH = "/Users/KodeSeeker/Personal/git_repo/";
+	public static final String GIT_URL = "https://api.github.com/user/1436976/gists?page=";
+	public static final String WORKSPACE_PATH = "/Users/vmahadevanveeramani/Personal/dump/";
 
 	private static String readAll(Reader rd) throws IOException {
 		StringBuilder sb = new StringBuilder();
@@ -29,8 +29,12 @@ public class GistExtract {
 	}
 
 	public static void JSONExtract() {
+	
 		try {
-			URL url = new URL(GIT_URL);
+		
+		for(int k=0;k<10;k++)
+		{	
+			URL url = new URL(GIT_URL+k);
 
 			InputStream is = url.openStream();
 			BufferedReader rd = new BufferedReader(new InputStreamReader(is,
@@ -65,6 +69,7 @@ public class GistExtract {
 
 			}
 		}
+		}
 
 		catch (MalformedURLException mal) {
 			mal.printStackTrace();
@@ -82,5 +87,6 @@ public class GistExtract {
 	public static void main(String... args) {
 		JSONExtract();
 	}
-
+	
+	
 }
